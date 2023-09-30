@@ -31,41 +31,23 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $product->name }}</td>
-
                 <td>{{ $product->detail }}</td>
-
                 <td>
-
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-
                         <a class="btn btn-info" href="{{ route('products.show', $product->id) }}">Show</a>
-
                         @can('product-edit')
                             <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
                         @endcan
-
-
-
                         @csrf
-
                         @method('DELETE')
-
                         @can('product-delete')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         @endcan
-
                     </form>
-
                 </td>
-
             </tr>
         @endforeach
-
     </table>
-
-
-
     {!! $products->links() !!}
-
     <p class="text-center text-primary"><small>Arafat Hossain Ar</small></p>
 @endsection
